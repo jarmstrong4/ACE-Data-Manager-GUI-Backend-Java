@@ -23,8 +23,6 @@ public class ViewEditPanel extends JPanel {
 
 	private JPanel vieweditpanel;
 
-	private JTextField textField;
-
 	private viewPanel viewpanel;
 
 	private editPat editPanel;
@@ -32,16 +30,20 @@ public class ViewEditPanel extends JPanel {
 	private MainPanel mainPanel;
 
 	public JLabel retryLabel;
+	
+	@SuppressWarnings("rawtypes")
+	public JComboBox comboBox;
 
 
-	AceDataManagerADT m1 = new AceDataManager("./project1/data.txt","./data.txt");
+	AceDataManagerADT m1;
 
 
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public ViewEditPanel() {
 
 		super(new BorderLayout());
-
+		m1 = new AceDataManager("./project1/data.txt","./data.txt");
 		setVisible(true);
 
 		vieweditpanel = new JPanel();
@@ -52,29 +54,11 @@ public class ViewEditPanel extends JPanel {
 
 		vieweditpanel.setBackground(Color.white);
 
-		JLabel lblNewLabel = new JLabel("Enter ID of patient you would like to view or edit:");
+		JLabel lblNewLabel = new JLabel("Select the ID of patient you would like to view or edit:");
 
-		lblNewLabel.setBounds(10, 102, 293, 14);
+		lblNewLabel.setBounds(81, 174, 329, 14);
 
 		vieweditpanel.add(lblNewLabel);
-
-
-
-		textField = new JTextField();
-
-		textField.setBounds(280, 99, 86, 20);
-
-		vieweditpanel.add(textField);
-
-		textField.setColumns(10);	
-
-
-
-		JLabel lblPressViewOr = new JLabel("Press view or edit:");
-
-		lblPressViewOr.setBounds(58, 151, 111, 20);
-
-		vieweditpanel.add(lblPressViewOr);
 
 
 
@@ -84,7 +68,7 @@ public class ViewEditPanel extends JPanel {
 
 		btnEdit.addActionListener(new editListener());
 
-		btnEdit.setBounds(174, 150, 85, 23);
+		btnEdit.setBounds(234, 230, 132, 43);
 
 		vieweditpanel.add(btnEdit);
 
@@ -94,7 +78,7 @@ public class ViewEditPanel extends JPanel {
 
 		btnView.addActionListener(new viewListener());
 
-		btnView.setBounds(269, 150, 86, 23);
+		btnView.setBounds(376, 230, 132, 43);
 
 		vieweditpanel.add(btnView);
 
@@ -115,6 +99,11 @@ public class ViewEditPanel extends JPanel {
 
 
 		add(vieweditpanel);
+		
+		comboBox = new JComboBox();
+		comboBox.setBounds(400, 171, 108, 20);
+		comboBox.setModel(new DefaultComboBoxModel(m1.getAllIDs().toArray()));
+		vieweditpanel.add(comboBox);
 
 
 
@@ -152,17 +141,14 @@ public class ViewEditPanel extends JPanel {
 
 		public void actionPerformed(ActionEvent e) {
 
-			if (m1.getPatient(textField.getText()) == null) {										// if/else to make sure the ID of patient entered is exits
 
-				JOptionPane.showMessageDialog(null, "INVALID ID, PLEASE RETRY");
-			}
-
-			else {
+				if (m1.getPatient(comboBox.getSelectedItem().toString()) == null) {
+					JOptionPane.showMessageDialog(null, "ID no longer exists, patient was deleted.\n" + "Select a different ID" );
+				}
+				else {
 				vieweditpanel.setVisible(false);													// if ID does exist, pull that patient's info from data manager 
 																									//and pass it to the next panel, viewPanel
-				PatientADT p1 = m1.getPatient(textField.getText());									
-
-				System.out.println(p1);
+				PatientADT p1 = m1.getPatient(comboBox.getSelectedItem().toString());									
 
 				viewpanel = new viewPanel(p1);											
 
@@ -170,14 +156,14 @@ public class ViewEditPanel extends JPanel {
 
 				viewpanel.setVisible(true);
 
-
+				}
 			}
 
 
 		}
 
 
-	}
+	
 
 
 
@@ -186,14 +172,10 @@ public class ViewEditPanel extends JPanel {
 
 		public void actionPerformed(ActionEvent event) {
 			
-			if (m1.getPatient(textField.getText()) == null) {										// if ID does exist, pull that patient's info from data manager 
-																									//and pass it to the next panel, editPat
-				JOptionPane.showMessageDialog(null, "INVALID ID, PLEASE RETRY");
-			}
-			else {
+
 			vieweditpanel.setVisible(false);
 
-			editPanel = new editPat(textField.getText());
+			editPanel = new editPat(comboBox.getSelectedItem().toString());
 
 			add(editPanel);
 
@@ -205,4 +187,5 @@ public class ViewEditPanel extends JPanel {
 		}
 
 	}
-}
+	
+	

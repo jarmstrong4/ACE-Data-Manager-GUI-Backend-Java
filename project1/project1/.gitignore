@@ -39,3 +39,5 @@
 /editPat.class
 /viewPanel$backListener.class
 /viewPanel.class
+/editListener.class
+/editPat$DeleteListener.class

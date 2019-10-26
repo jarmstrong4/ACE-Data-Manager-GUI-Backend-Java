@@ -4,7 +4,6 @@ package project1;
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -234,6 +233,20 @@ public class AceDataManager implements AceDataManagerADT{
 	{
 		doWrite(fn,fn2);
 
+	}
+	
+	public ArrayList<String> getAllIDs() {
+		ArrayList<String> toReturn = new ArrayList<String>();
+		
+		for (String id : adm.keySet()) {
+			toReturn.add(id);	
+		}
+		
+		return toReturn;
+	}
+	
+	public void RemovePatient(PatientADT p) {
+		adm.remove(p.getId());
 	}
 
 	//Formats the toString() method of Patient class

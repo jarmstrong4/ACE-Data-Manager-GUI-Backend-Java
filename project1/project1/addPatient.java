@@ -79,57 +79,57 @@ public class addPatient extends JPanel{
 		
 		JLabel lblAces = new JLabel("ACEs");
 		lblAces.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblAces.setBounds(433, 115, 71, 23);
+		lblAces.setBounds(446, 114, 71, 23);
 		addPanel.add(lblAces);
 		
 		JCheckBox chckbxNewCheckBox = new JCheckBox("Physical abuse");
 		chckbxNewCheckBox.addActionListener(new PhysAbuseListener());
-		chckbxNewCheckBox.setBounds(331, 144, 115, 23);
+		chckbxNewCheckBox.setBounds(296, 146, 150, 23);
 		addPanel.add(chckbxNewCheckBox);
 		
 		JCheckBox chckbxNewCheckBox_1 =  new JCheckBox("Emotional neglect");
 		chckbxNewCheckBox_1.addActionListener(new EmotNeglectListener());
-		chckbxNewCheckBox_1.setBounds(331, 197, 115, 23);
+		chckbxNewCheckBox_1.setBounds(295, 198, 151, 23);
 		addPanel.add(chckbxNewCheckBox_1);
 		
 		JCheckBox chckbxNewCheckBox_2 = new JCheckBox("Sexual abuse");
 		chckbxNewCheckBox_2.addActionListener(new SexAbuse());
-		chckbxNewCheckBox_2.setBounds(331, 170, 115, 23);
+		chckbxNewCheckBox_2.setBounds(295, 172, 151, 23);
 		addPanel.add(chckbxNewCheckBox_2);
 		
 		JCheckBox chckbxNewCheckBox_3 = new JCheckBox("Parental seperation or divorce");
 		chckbxNewCheckBox_3.addActionListener(new ParenSeperation());
-		chckbxNewCheckBox_3.setBounds(447, 170, 182, 23);
+		chckbxNewCheckBox_3.setBounds(475, 172, 223, 23);
 		addPanel.add(chckbxNewCheckBox_3);
 		
 		JCheckBox chckbxNewCheckBox_4 = new JCheckBox("Exposure to domestic violence");
 		chckbxNewCheckBox_4.addActionListener(new DomVioExpo());
-		chckbxNewCheckBox_4.setBounds(448, 197, 182, 23);
+		chckbxNewCheckBox_4.setBounds(475, 198, 223, 23);
 		addPanel.add(chckbxNewCheckBox_4);
 		
 		JCheckBox chckbxNewCheckBox_5 = new JCheckBox("Household mental illness");
 		chckbxNewCheckBox_5.addActionListener(new HouseMental());
-		chckbxNewCheckBox_5.setBounds(447, 144, 182, 23);
+		chckbxNewCheckBox_5.setBounds(475, 146, 223, 23);
 		addPanel.add(chckbxNewCheckBox_5);
 		
 		JCheckBox chckbxNewCheckBox_6 = new JCheckBox("Physical neglect");
 		chckbxNewCheckBox_6.addActionListener(new PhysNeglect());
-		chckbxNewCheckBox_6.setBounds(331, 249, 115, 23);
+		chckbxNewCheckBox_6.setBounds(295, 249, 151, 23);
 		addPanel.add(chckbxNewCheckBox_6);
 		
 		JCheckBox chckbxNewCheckBox_7 = new JCheckBox("Emotional abuse");
 		chckbxNewCheckBox_7.addActionListener(new EmoAbuse());
-		chckbxNewCheckBox_7.setBounds(331, 223, 115, 23);
+		chckbxNewCheckBox_7.setBounds(296, 223, 150, 23);
 		addPanel.add(chckbxNewCheckBox_7);
 		
 		JCheckBox chckbxNewCheckBox_8 = new JCheckBox("Household substance abuse");
 		chckbxNewCheckBox_8.addActionListener(new SubAbuse());
-		chckbxNewCheckBox_8.setBounds(447, 223, 182, 23);
+		chckbxNewCheckBox_8.setBounds(475, 223, 223, 23);
 		addPanel.add(chckbxNewCheckBox_8);
 		
 		JCheckBox chckbxNewCheckBox_9 = new JCheckBox("Incarcerated household member");
 		chckbxNewCheckBox_9.addActionListener(new IncarHouseMem());
-		chckbxNewCheckBox_9.setBounds(447, 249, 182, 23);
+		chckbxNewCheckBox_9.setBounds(475, 249, 223, 23);
 		addPanel.add(chckbxNewCheckBox_9);
 		
 		JButton btnNewButton = new JButton("Save patient");
@@ -242,7 +242,7 @@ public class addPatient extends JPanel{
 			add(MainPanel);
 			
 			m1.writeToFile();
-			System.out.println("New patient added and written");
+			JOptionPane.showMessageDialog(null, "New patient added and written");
 			
 			
 			}

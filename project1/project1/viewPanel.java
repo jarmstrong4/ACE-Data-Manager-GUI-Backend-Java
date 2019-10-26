@@ -40,25 +40,27 @@ public class viewPanel extends JPanel {
 		viewPanel.add(lblId_1);
 		
 		JLabel lblAces = new JLabel("ACEs");
-		lblAces.setBounds(102, 88, 46, 14);
+		lblAces.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblAces.setBounds(172, 75, 133, 21);
 		lblAces.setHorizontalAlignment(SwingConstants.CENTER);
 		viewPanel.add(lblAces);
 		
 		JLabel lblRiskFactors = new JLabel("Risk Factors");
-		lblRiskFactors.setBounds(316, 88, 72, 14);
+		lblRiskFactors.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblRiskFactors.setBounds(493, 72, 116, 22);
 		lblRiskFactors.setHorizontalAlignment(SwingConstants.CENTER);
 		viewPanel.add(lblRiskFactors);
 		
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(46, 101, 155, 188);
+		scrollPane.setBounds(134, 103, 228, 271);
 		viewPanel.add(scrollPane);
 		
 		JTextArea textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(274, 101, 155, 188);
+		scrollPane_1.setBounds(425, 102, 256, 271);
 		viewPanel.add(scrollPane_1);
 		
 		JTextArea textArea_1 = new JTextArea();

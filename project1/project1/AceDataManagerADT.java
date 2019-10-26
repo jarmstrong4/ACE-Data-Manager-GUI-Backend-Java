@@ -11,8 +11,10 @@ public interface AceDataManagerADT {
 		 // containing all of the risk factors associated with the input list of ACEs
 	public void writeToFile (); // write to the file set during instantiation
 	public void writeToFile (String fn); // write to the file indicated in parameter
+	public ArrayList<String> getAllIDs();
 	public String toString(); //Returns a string representation of the ACE patient and 					
 	// risk factors data manager
+	public void RemovePatient(PatientADT p);
 
 	public String[] getAceList (); // get a string array of the possible aces
 }

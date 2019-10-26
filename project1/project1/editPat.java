@@ -11,9 +11,8 @@ package project1;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-
-
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -30,17 +29,20 @@ public class editPat extends JPanel{
 	private JPanel editpanel;
 	AceDataManagerADT m1 = new AceDataManager("./project1/data.txt","./data.txt");
 	private JTextField textField_1;
-	private ViewEditPanel vieweditpanel;
+	private JPanel vieweditpanel;
 	private ArrayList<String> Currentaces;
 	private ArrayList<String> aces;
 	PatientADT testparameter;
 	private JPanel MainPanel;
 	private JLabel lblNewLabel;
+	private String ID;
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public editPat(String id) {
+		super(new BorderLayout());
+		ID = id;
 		editpanel = new JPanel();
-		setVisible(true);
+
 		editpanel.setLayout(null);
 		editpanel.setBounds(0, 1, 800,500);
 		editpanel.setVisible(true);
@@ -49,7 +51,7 @@ public class editPat extends JPanel{
 		
 		JButton btnBack = new JButton("Back");
 		btnBack.addActionListener(new backListener());
-		setLayout(null);
+
 		btnBack.setBounds(10, 5, 55, 23);
 		editpanel.add(btnBack);
 		
@@ -142,12 +144,31 @@ public class editPat extends JPanel{
 		
 		JButton btnSave = new JButton("SAVE");
 		btnSave.addActionListener(new SaveActionListener());
-		btnSave.setBounds(445, 310, 89, 23);
+		btnSave.setBounds(318, 328, 120, 43);
 		editpanel.add(btnSave);
+		
+		JButton btnNewButton = new JButton("Delete Patient");
+		btnNewButton.setBounds(180, 328, 120, 43);
+		editpanel.add(btnNewButton);
+		btnNewButton.addActionListener(new DeleteListener());
 		editpanel.setVisible(true);
 		
 
 	}
+	
+	private class DeleteListener implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			m1.RemovePatient(m1.getPatient(ID));
+			editpanel.setVisible(false);
+			vieweditpanel = new ViewEditPanel();
+			add(vieweditpanel);
+			vieweditpanel.setVisible(true);
+			m1.writeToFile();
+			JOptionPane.showMessageDialog(null, "Patient will be deleted when application is closed or the next time the patient is viewed.");
+			
+		}
+	}
+	
 	private class PhysAbuseListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			aces.add("Physical abuse");
@@ -214,6 +235,7 @@ public class editPat extends JPanel{
 			editpanel.setVisible(false);
 			vieweditpanel = new ViewEditPanel();
 			add(vieweditpanel);
+			vieweditpanel.setVisible(true);
 		}
 	}
 	private class SaveActionListener implements ActionListener {
@@ -230,7 +252,7 @@ public class editPat extends JPanel{
 			MainPanel = new MainPanel();
 			add(MainPanel);
 			m1.writeToFile();
-			System.out.println("Patient edited and changes have been written");
+			JOptionPane.showMessageDialog(null, "Patient changes were saved and written");
 			
 			
 			
