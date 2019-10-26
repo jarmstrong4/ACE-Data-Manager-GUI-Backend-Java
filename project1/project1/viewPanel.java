@@ -6,8 +6,8 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class viewPanel extends JPanel {
 	private JPanel viewPanel;
 	private String ID, NAME;
@@ -18,7 +18,7 @@ public class viewPanel extends JPanel {
 		ID = p1.getId();
 		NAME = p1.getName();
 		viewPanel = new JPanel();
-		viewPanel.setPreferredSize(new Dimension(800, 600));
+		viewPanel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		viewPanel.setBackground(Color.white);
 		viewPanel.setLayout(null);
 		viewPanel.setVisible(true);

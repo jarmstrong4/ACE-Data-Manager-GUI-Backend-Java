@@ -2,17 +2,16 @@
 //Project 2
 package project1;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
-
+//class that creates the frame that panels are then added to, the frame is the heavy weight component that talks to the operating system for default layout
 
 public class MainFrame {
+	
+    JFrame frame;
+
+    
 	public static void main(String[] args) {
 		AceDataManagerADT m1 = new AceDataManager("./project1/data.txt","./data.txt");
 
@@ -21,11 +20,15 @@ public class MainFrame {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(800, 500);
 		
+		MainPanel MainPanel = new MainPanel();
+		frame.add(MainPanel);
 		
-		frame.getContentPane().add(new MainPanel());
 		
 		frame.pack();
 		frame.setVisible(true);
+		frame.setLayout(null);
+		
+
 		
 
 		
