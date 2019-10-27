@@ -44,6 +44,7 @@ public class viewPanel extends JPanel {
 		lblAces.setBounds(172, 75, 133, 21);
 		lblAces.setHorizontalAlignment(SwingConstants.CENTER);
 		viewPanel.add(lblAces);
+		System.out.println("");
 		
 		JLabel lblRiskFactors = new JLabel("Risk Factors");
 		lblRiskFactors.setFont(new Font("Tahoma", Font.PLAIN, 14));
