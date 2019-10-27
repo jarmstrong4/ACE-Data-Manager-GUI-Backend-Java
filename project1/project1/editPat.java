@@ -164,8 +164,8 @@ public class editPat extends JPanel{
 			add(vieweditpanel);
 			vieweditpanel.setVisible(true);
 			m1.writeToFile();
-			JOptionPane.showMessageDialog(null, "Patient will be deleted when application is closed or the next time the patient is viewed.");
-			
+			JOptionPane.showMessageDialog(null, "Patient will be deleted when application is closed or the next time the patient is viewed.	");
+			System.out.println("");
 		}
 	}
 	

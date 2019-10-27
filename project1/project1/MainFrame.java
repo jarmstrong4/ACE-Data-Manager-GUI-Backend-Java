@@ -21,7 +21,7 @@ public class MainFrame {
 		frame.setPreferredSize(new Dimension(800,500));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(800, 500);
-
+		System.out.println("");
 		
 		MainPanel MainPanel = new MainPanel();
 		frame.add(MainPanel);

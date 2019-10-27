@@ -16,5 +16,5 @@ public interface AceDataManagerADT {
 	// risk factors data manager
 	public void RemovePatient(PatientADT p);
 
-	public String[] getAceList (); // get a string array of the possible aces
+	public String[] getAceList (); // get a string array of the aces
 }

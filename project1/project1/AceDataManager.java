@@ -25,6 +25,7 @@ public class AceDataManager implements AceDataManagerADT{
 		fileName = fn;
 		fileName2 = fn2;
 		readFile();
+		System.out.println("");
 	}
 
 	//Adds patient variable into adm HashMap variable

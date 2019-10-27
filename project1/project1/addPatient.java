@@ -243,6 +243,7 @@ public class addPatient extends JPanel{
 			
 			m1.writeToFile();
 			JOptionPane.showMessageDialog(null, "New patient added and written");
+			System.out.println("");
 			
 			
 			}

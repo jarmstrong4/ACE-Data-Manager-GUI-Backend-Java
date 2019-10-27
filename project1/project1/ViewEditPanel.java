@@ -60,7 +60,7 @@ public class ViewEditPanel extends JPanel {
 
 		vieweditpanel.add(lblNewLabel);
 
-
+		System.out.println("");
 
 
 

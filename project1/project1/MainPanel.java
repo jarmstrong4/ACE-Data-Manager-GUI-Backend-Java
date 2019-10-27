@@ -119,7 +119,7 @@ public class MainPanel extends JPanel {
 			choicePanel.setVisible(false);
 
 			addPanel = new addPatient();
-
+			System.out.println("");
 			add(addPanel);
 
 		}
